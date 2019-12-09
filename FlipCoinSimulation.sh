@@ -8,20 +8,23 @@ head=0
 tail=0
 declare -A combinationDict
 
+function singletValue()
+{
 for((i=1;i<=flip;i++))
 do
 	randomFlip=$((RANDOM%2))
 	if [ $randomFlip -eq 1 ]
 	then
 		head=$(($head+1))
-		combinationDict[$i]=Head
+		combinationDict[FlipCoin$i]=Head
 	else
 		tail=$(($tail+1))
-		combinationDict[$i]=Tail
+		combinationDict[FlipCoin$i]=Tail
 	fi
 done
 total=$(($head+$tail))
 headPer=$((100*$head/$total))
 tailPer=$((100*$tail/$total))
-echo "head percentage :"$headPer
-echo "tail percentage :"$tailPer
+echo $headPer
+}
+singletValue
