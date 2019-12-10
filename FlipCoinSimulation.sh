@@ -1,5 +1,5 @@
 #!/bin/bash -x
-u
+
 echo "WELCOME TO FLIP COIN SIMULATION"
 
 read -p "enter the number of times you want to flip the coin" flip
@@ -86,3 +86,5 @@ function doublet()
 	echo HT=$((100*HT/$flip))
 	echo TH=$((100*TH/$flip))
 }
+doublet
+
