@@ -1,5 +1,5 @@
 #!/bin/bash -x
-u
+
 echo "WELCOME TO FLIP COIN SIMULATION"
 
 read -p "enter the number of times you want to flip the coin" flip
@@ -86,3 +86,49 @@ function doublet()
 	echo HT=$((100*HT/$flip))
 	echo TH=$((100*TH/$flip))
 }
+
+function triplet()
+{
+	HHH=0 THH=0 HTH=0 HHT=0 TTH=0 THT=0 HTT=0 TTT=0
+	triple=""
+	coin=3
+	tripleValue=$(getPercentage $coin)
+
+	for i in $tripleValue
+	do
+		if [ $i == "HHH" ]
+		then
+			HHH=$(($HHH+1))
+		elif [ $i == "THH" ]
+		then
+			THH=$(($THH+1))
+		elif [ $i == "HTH" ]
+		then
+			HTH=$(($HTH+1))
+		elif [ $i == "HHT" ]
+		then
+			HHT=$(($HTT+1))
+		elif [ $i == "TTH" ]
+		then
+			TTH=$(($TTH+1))
+		elif [ $i = "THT" ]
+		then
+			THT=$(($THT+1))
+		elif [ $i == "HTT" ]
+		then
+			HTT=$(($HTT+1))
+		elif [ $i == "TTT" ]
+		then
+			TTT=$(($TTT+1))
+		fi
+	done
+	echo HHH=$((100*$HHH/$flip))
+	echo THH=$((100*$THH/$flip))
+	echo HTH=$((100*$HTH/$flip))
+	echo HHT=$((100*$HHT/$flip))
+	echo TTH=$((100*$TTH/$flip))
+	echo THT=$((100*$THT/$flip))
+	echo HTT=$((100*$HTT/$flip))
+	echo TTT=$((100*$TTT/$flip))
+}
+triplet
